@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  api:
+    image: ellisonalencar/kubenews:1.1
+    container_name: kebenews
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - kube_net
+    volumes:
+      - kube_vol 
+    environment:
+      DB_DATABASE: postdb 
+      DB_USERNAME: postuser
+      DB_PASSWORD: postpwd
+      DB_HOST: postgres
+  db:
+    image: postgres:latest
+    container_name: "postgres"
+    restart: always
+    ports: 
+      - 5432:5432
+    networks:
+      - kube_net
+    volumes:
+      - kube_vol:/data/db
+    environment:
+      POSTGRES_USER: postuser 
+      POSTGRES_PASSWORD: postpwd
+      POSTGRES_DB: postdb 
+  pgadmin:
+    image: dpage/pgadmin4:6.15
+    container_name: "pgadmin"
+    restart: always
+    ports: 
+      - 8081:80
+    networks:
+      - kube_net
+    volumes:
+     - kube_vol:/data/db
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=ellison@teste.com
+      - PGADMIN_DEFAULT_PASSWORD=pgpwd
+networks:
+  kube_net:
+volumes:
+  kube_vol:
