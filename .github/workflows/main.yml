@@ -25,7 +25,7 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags:
-            ellisonalencar/kube-news:${{github.run.number}}
+            ellisonalencar/kube-news:${{github.run.number}} ,
             ellisonalencar/kube-news:latest
 
 
