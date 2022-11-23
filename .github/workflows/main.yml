@@ -46,6 +46,6 @@ jobs:
         with:
           images: ellisonalencar/kube-news:${{github.run.number}}
           manifest:
-            k8s/deployemt
+            k8s/
   
   
