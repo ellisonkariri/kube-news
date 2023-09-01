@@ -23,6 +23,11 @@ spec:
         imagePullPolicy: Always
 
         envFrom:
+<<<<<<< HEAD
           - secretRef:
               name: secret-db
+=======
+         - secretRef:
+             name: secret-db
+>>>>>>> a483bde (Alteração no Dockerfile e Subindo configurações do Grafana, Prometheus e Loki)
 

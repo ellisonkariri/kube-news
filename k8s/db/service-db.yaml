@@ -4,7 +4,11 @@ metadata:
   name: db-service
 spec:
   selector:
+<<<<<<< HEAD
     app: db
+=======
+    app: postgres
+>>>>>>> a483bde (Alteração no Dockerfile e Subindo configurações do Grafana, Prometheus e Loki)
   ports:
   - port: 5432
     targetPort: 5432

@@ -8,6 +8,13 @@ spec:
       app: pgadmin
   template:
     metadata:
+<<<<<<< HEAD
+=======
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8082"
+>>>>>>> a483bde (Alteração no Dockerfile e Subindo configurações do Grafana, Prometheus e Loki)
       labels:
         app: pgadmin
     spec:
@@ -19,7 +26,11 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
+<<<<<<< HEAD
         - containerPort: 80
+=======
+        - containerPort: 8082
+>>>>>>> a483bde (Alteração no Dockerfile e Subindo configurações do Grafana, Prometheus e Loki)
         env:
           - name: PGADMIN_DEFAULT_EMAIL
             value: ellison@teste.com

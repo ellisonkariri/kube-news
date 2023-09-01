@@ -5,6 +5,14 @@ metadata:
 spec:
   selector:
     app: pgadmin
+<<<<<<< HEAD
   ports:
   - port: 80
     targetPort: 8081
+=======
+  type: NodePort
+  ports:
+  - port: 8082
+    targetPort: 8082
+    
+>>>>>>> a483bde (Alteração no Dockerfile e Subindo configurações do Grafana, Prometheus e Loki)

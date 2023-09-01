@@ -5,8 +5,17 @@ metadata:
 spec:
   selector:
     app: api
+<<<<<<< HEAD
   type: LoadBalancer
   ports:
   - port: 8000
     targetPort: 8080
     nodePort: 30000
+=======
+  
+  type: LoadBalancer
+  ports:
+  - port: 8085
+    targetPort: 8080
+   # nodePort: 31346
+>>>>>>> a483bde (Alteração no Dockerfile e Subindo configurações do Grafana, Prometheus e Loki)
