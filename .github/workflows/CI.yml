@@ -1,4 +1,4 @@
-name: CI-CD
+name: CI
 
 on: 
   push:
@@ -27,7 +27,7 @@ jobs:
           tags:
             ellisonalencar/kube-news:${{github.run.number}} ,
             ellisonalencar/kube-news:latest
-
+          run: echo "O valor de github.run.number é ${{github.run.number}}"
 
   
   
