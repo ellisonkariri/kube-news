@@ -2,7 +2,7 @@ name: CI-CD
 
 on: 
   push:
-    branches: ["main"]
+    branches: ["hmg"]
     
 jobs:
   CI:
@@ -21,31 +21,14 @@ jobs:
       - name: Construção da imagem Docker
         uses: docker/build-push-action@v3.2.0
         with:
-          context: ./src
-          file: ./src/Dockerfile
+          context: ./Docker
+          file: ./Docker/Dockerfile
           push: true
           tags:
             ellisonalencar/kube-news:${{github.run.number}} ,
             ellisonalencar/kube-news:latest
 
 
-  CD:
-    runs-on: ubuntu-latest
-    needs: [CI]
-    steps:
-      - uses: actions/checkout@v3.0.1
-      
-      - name: Definindo o context
-        uses: Azure/k8s-set-context@v3.0
-        with: 
-            method: kubconfig
-            kubeconfig: ${{secrets.k8s_config}}
-            
-      - name: Deploy to Kubernetes cluster
-        uses: Azure/k8s-deploy@v4
-        with:
-          images: ellisonalencar/kube-news:${{github.run.number}}
-          manifest:
-            k8s/
+  
   
   
